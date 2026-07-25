@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMorph Pvt. Ltd. - Digital Solutions</title>
+    <meta name="description"
+        content="TechMorph Pvt. Ltd. - Specializing in web and app design, UI/UX development, and full-stack solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Anton&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.jpg" alt="TechMorph Logo" class="logo-img">
+                <span>TechMorph</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#vision-mission">Vision & Mission</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="scanlines"></div>
+
+    <header id="home" class="hero-stage">
+        <!-- THE BACKGROUND TEXT -->
+        <div class="depth-text">TECHMORPH</div>
+
+        <!-- THE FOREGROUND ELEMENT (Sitting in front of text) -->
+        <div class="foreground-object">
+            <div class="floating-cube"></div>
+            <div class="hero-content-inner">
+                <h1 class="animate-text" style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;">
+                    Future of <br><span class="gradient-text">Digital</span>
+                </h1>
+                <p class="animate-text delay-1" style="color: #a0a0b0; margin-bottom: 30px; font-size: 1.2rem;">
+                    We build immersive web experiences that hang between creativity and technology.
+                </p>
+                <div class="hero-btns animate-text delay-2" style="justify-content: center;">
+                    <a href="#portfolio" class="btn btn-primary">Explore Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="grid-2-col center-vertical">
+                <div class="about-text">
+                    <span class="section-tag">Who We Are</span>
+                    <h2>About TechMorph</h2>
+                    <p>
+                        TechMorph Pvt. Ltd. is a digital solutions company specializing in web and app design, UI/UX
+                        development, and full-stack solutions.
+                        Founded with a vision to deliver custom, user-centered experiences, we help brands transform
+                        their digital presence through creativity and technology.
+                    </p>
+                    <a href="#contact" class="btn btn-primary mt-2">More About Us</a>
+                </div>
+                <div class="about-visual">
+                    <div class="blob-shape">
+                        <img src="logo.jpg" alt="TechMorph Logo" class="about-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section (New) -->
+    <section class="section tech-stack-section">
+        <div class="container center-text">
+            <h3>Powered By</h3>
+            <div class="tech-icons">
+                <div class="tech-item"><i class="fab fa-figma"></i> <span>Figma</span></div>
+                <div class="tech-item"><i class="fas fa-palette"></i> <span>Canva</span></div>
+                <div class="tech-item"><i class="fas fa-mobile-alt"></i> <span>Flutter</span></div>
+                <div class="tech-item"><i class="fas fa-rocket"></i> <span>Antigravity</span></div>
+                <div class="tech-item"><i class="fas fa-code"></i> <span>VS Code</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision-mission" class="section">
+        <div class="container">
+            <div class="grid-2-col">
+                <div class="card glass-card hover-glow">
+                    <div class="card-header">
+                        <div class="icon-box"><i class="fas fa-eye"></i></div>
+                        <h3>Our Vision</h3>
+                    </div>
+                    <p>To become a global leader in creative digital design and development by continuously innovating
+                        and exceeding client expectations.</p>
+                </div>
+                <div class="card glass-card hover-glow">
+                    <div class="card-header">
+                        <div class="icon-box"><i class="fas fa-rocket"></i></div>
+                        <h3>Our Mission</h3>
+                    </div>
+                    <p>To provide seamless, innovative, and user-friendly digital solutions that elevate our clients'
+                        business presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects Section (New) -->
+    <section id="portfolio" class="section projects-section parallax-container">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag">Our Work</span>
+                <h2>Recent Designs & Projects</h2>
+            </div>
+            <div class="projects-preview-grid">
+                <div class="project-card-preview tilt-effect">
+                    <div class="preview-content">
+                        <h3>E-Commerce App</h3>
+                        <p>Modern shopping experience with seamless checkout.</p>
+                    </div>
+                </div>
+                <div class="project-card-preview tilt-effect">
+                    <div class="preview-content">
+                        <h3>FinTech Dashboard</h3>
+                        <p>Real-time data visualization and analytics.</p>
+                    </div>
+                </div>
+                <div class="project-card-preview tilt-effect">
+                    <div class="preview-content">
+                        <h3>Travel Booking</h3>
+                        <p>Immersive UI for booking your next adventure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="center-text mt-3">
+                <a href="projects.html" class="btn btn-primary pulse-btn">View All Projects <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="goals" class="section goals-section">
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag">Core Values</span>
+                <h2>Our Goals</h2>
+            </div>
+            <div class="goals-list-wrapper">
+                <div class="goal-item glass-card">
+                    <div class="goal-icon-large"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="goal-content">
+                        <h4>Deliver Excellence</h4>
+                        <p>Maintain high standards in design and development for all projects.</p>
+                    </div>
+                </div>
+                <div class="goal-item glass-card">
+                    <div class="goal-icon-large"><i class="fas fa-users"></i></div>
+                    <div class="goal-content">
+                        <h4>Customer Satisfaction</h4>
+                        <p>Build long-term relationships by understanding and fulfilling client needs.</p>
+                    </div>
+                </div>
+                <div class="goal-item glass-card">
+                    <div class="goal-icon-large"><i class="fas fa-globe"></i></div>
+                    <div class="goal-content">
+                        <h4>Scalable Growth</h4>
+                        <p>Expand services globally with a time-zone friendly team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Web & Mobile App Development</h3>
+                    <p>Robust and scalable applications tailored to your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Intuitive and engaging designs that provide superior user experiences.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Full Stack Development</h3>
+                    <p>End-to-end development solutions for complex web requirements.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Responsive Website Design</h3>
+                    <p>Websites that look and perform beautifully on all devices.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Custom Software Solutions</h3>
+                    <p>Tailored software built to solve specific operational challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section team-section">
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag">The Minds Behind</span>
+                <h2>Management Team</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team Members -->
+                <div class="team-member">
+                    <div class="member-avatar">S</div>
+                    <h4>Siddhant Meher</h4>
+                    <span class="role">Founder</span>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">H</div>
+                    <h4>Harsh Patil</h4>
+                    <span class="role">Co-founder</span>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">C</div>
+                    <h4>Chinmay Gawad</h4>
+                    <span class="role">Backend Developer</span>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">S</div>
+                    <h4>Swagat Bhoir</h4>
+                    <span class="role">Backend Developer</span>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">C</div>
+                    <h4>Chirag Patil</h4>
+                    <span class="role">Frontend Developer</span>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">S</div>
+                    <h4>Sahil Gawad</h4>
+                    <span class="role">Frontend Developer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Let's Create Something Amazing</h2>
+                    <p>Ready to start your next project? Get in touch with us.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:techmorphpvt@gmail.com">techmorphpvt@gmail.com</a>
+                    </div>
+                    <!-- Placeholder social links -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your project" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 TechMorph Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

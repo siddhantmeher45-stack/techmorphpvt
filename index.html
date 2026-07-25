@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechMorph Pvt. Ltd. — Future of Digital Solutions</title>
+  <meta name="description"
+    content="TechMorph Pvt. Ltd. — Specializing in web & mobile app development, UI/UX design, full-stack solutions, and custom software." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Anton&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- SPLASH CURTAIN -->
+  <div class="splash" id="splash">
+    <div class="splash-row splash-row-top">
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+    </div>
+    <div class="splash-row splash-row-bottom">
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+      <div class="splash-box"></div>
+    </div>
+  </div>
+
+  <!-- HEADER / FIXED NAV -->
+  <header class="header">
+    <div class="logo-wrapper">
+      <div class="inner">
+        <a href="#home" aria-label="TechMorph Home" class="brand-logo">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00F2FE" />
+                <stop offset="100%" stop-color="#4FACFE" />
+              </linearGradient>
+            </defs>
+            <rect width="36" height="36" rx="10" fill="url(#logoGrad)" />
+            <path d="M9 27L27 9M27 9H14M27 9V22" stroke="#0B0B0B" stroke-width="3.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span class="brand-name">TechMorph</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="availability-badge d-none-mobile">
+      <span class="status-dot"></span> TechMorph Pvt. Ltd. — Accepting Projects
+    </div>
+
+    <div class="burger-wrapper">
+      <div class="inner">
+        <button class="burger-btn" id="burger-btn" aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION DRAWER PANEL -->
+  <div class="menu-panel" id="menu-panel" aria-hidden="true">
+    <div class="menu-header">
+      <span class="menu-label">Navigation</span>
+    </div>
+    <nav class="menu-nav">
+      <a href="#home" class="menu-link">Home</a>
+      <a href="#about" class="menu-link">About Us</a>
+      <a href="#vision-mission" class="menu-link">Vision & Mission</a>
+      <a href="#services" class="menu-link">Our Services</a>
+      <a href="#portfolio" class="menu-link">Recent Work</a>
+      <a href="#goals" class="menu-link">Core Values</a>
+      <a href="#team" class="menu-link">Management Team</a>
+      <a href="#contact" class="menu-link">Contact</a>
+    </nav>
+    <div class="menu-contact">
+      <span class="contact-label">Direct Email</span>
+      <a href="mailto:techmorphpvt@gmail.com" class="menu-email">techmorphpvt@gmail.com</a>
+      <div class="menu-socials">
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Twitter / X</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="menu-footer">
+      <button class="menu-cta-btn open-contact-modal">
+        <span class="menu-cta-bg"></span>
+        <span class="menu-cta-text">Start a Project</span>
+        <span class="menu-cta-circle">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <main class="hero" id="home">
+    <!-- Base image layer -->
+    <div class="hero-base-img hero-image-animate"
+      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/5c9f982199fde1d9b85a20e5396f0fa7bacaf9a3.png?w=2560');">
+    </div>
+
+    <!-- Reveal layer spotlight masked -->
+    <div class="hero-reveal-img" id="reveal-img"
+      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/6be2165e31648955b4e071f4cf2a50bc572b9bfd.png?w=1536');">
+    </div>
+
+    <!-- Content overlay -->
+    <div class="hero-content">
+      <div class="hero-content-inner">
+        <div class="hero-badge">TECHMORPH PVT. LTD.</div>
+        <h1 class="hero-headline" id="headline"></h1>
+        <div class="hero-action-row">
+          <button class="cta-btn cta-animate open-contact-modal">
+            <span class="cta-btn-bg"></span>
+            <span class="cta-btn-text">Start a Project Now</span>
+            <span class="cta-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+          <a href="#portfolio" class="secondary-scroll-btn">
+            Explore Recent Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT SECTION -->
+  <section class="section section-light" id="about">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-left">
+          <div class="section-tag dark-tag">01 / WHO WE ARE</div>
+          <h2 class="about-heading">About TechMorph Pvt. Ltd.</h2>
+          <p class="about-body">
+            TechMorph Pvt. Ltd. is a digital solutions company specializing in web and app design, UI/UX development,
+            and full-stack solutions.
+            Founded with a vision to deliver custom, user-centered experiences, we help brands transform their digital
+            presence through creativity and cutting-edge technology.
+          </p>
+          <div class="about-quote">
+            "We build immersive web & mobile experiences that hang seamlessly between creativity and high-performance
+            technology."
+          </div>
+          <div style="margin-top: 32px;">
+            <button class="cta-btn open-contact-modal">
+              <span class="cta-btn-bg"></span>
+              <span class="cta-btn-text">Get in Touch</span>
+              <span class="cta-btn-circle">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <!-- Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-number" data-target="100">0</span><span class="metric-plus">%</span>
+              <span class="metric-label">Custom Experience Focus</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number" data-target="6">0</span><span class="metric-plus"></span>
+              <span class="metric-label">Core Engineering Minds</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number" data-target="24">0</span><span class="metric-plus">/7</span>
+              <span class="metric-label">Global Timezone Coverage</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number" data-target="100">0</span><span class="metric-plus">%</span>
+              <span class="metric-label">Client Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION SECTION -->
+  <section class="section section-dark" id="vision-mission">
+    <div class="container">
+      <div class="section-header center-text" style="max-width: 800px; margin: 0 auto 60px auto;">
+        <div class="section-tag">02 / PURPOSE & DRIVE</div>
+        <h2 class="section-title">Our Vision & Mission</h2>
+        <p class="section-desc">Empowering organizations with digital solutions engineered to scale globally.</p>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="glass-card hover-glow">
+          <div class="card-icon-header">
+            <div class="icon-box"><i class="fas fa-eye"></i></div>
+            <h3>Our Vision</h3>
+          </div>
+          <p class="card-text">
+            To become a global leader in creative digital design and development by continuously innovating, elevating
+            digital standards, and exceeding client expectations across every product launch.
+          </p>
+        </div>
+
+        <div class="glass-card hover-glow">
+          <div class="card-icon-header">
+            <div class="icon-box"><i class="fas fa-rocket"></i></div>
+            <h3>Our Mission</h3>
+          </div>
+          <p class="card-text">
+            To provide seamless, innovative, and user-friendly digital solutions that elevate our clients' business
+            presence, streamlining operations and captivating end users worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="section section-dark" id="services" style="border-top: 1px solid rgba(255,255,255,0.06);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">03 / WHAT WE DO</div>
+        <h2 class="section-title">Our Core Services</h2>
+        <p class="section-desc">End-to-end digital solutions tailored to solve complex operational challenges.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="service-title">Web & Mobile App Development</h3>
+          <p class="service-desc">Robust, high-performance, and scalable mobile & web applications engineered to match
+            your business goals.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3 class="service-title">UI/UX Design</h3>
+          <p class="service-desc">Intuitive visual interfaces, interactive wireframes, and engaging user journeys
+            providing superior user experience.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+          <h3 class="service-title">Full Stack Development</h3>
+          <p class="service-desc">End-to-end frontend and backend architecture built for speed, security, and effortless
+            cloud scalability.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-desktop"></i></div>
+          <h3 class="service-title">Responsive Website Design</h3>
+          <p class="service-desc">Fluid, ultra-modern websites designed to look and perform flawlessly on smartphones,
+            tablets, and desktops.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h3 class="service-title">Custom Software Solutions</h3>
+          <p class="service-desc">Tailored enterprise software and specialized tools designed specifically for your
+            operational workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT PROJECTS / WORK SECTION -->
+  <section class="section section-dark" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">04 / RECENT WORK</div>
+        <h2 class="section-title">Recent Designs & Projects</h2>
+        <p class="section-desc">Take a look at some of the digital products engineered by TechMorph Pvt. Ltd.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+        <button class="filter-btn" data-filter="fintech">FinTech & Data</button>
+        <button class="filter-btn" data-filter="web">Web Products</button>
+      </div>
+
+      <!-- Work Grid -->
+      <div class="work-grid" id="work-grid">
+        <!-- Project 1 -->
+        <article class="work-card" data-category="mobile" data-id="ecommerce">
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=1200&q=80"
+              alt="E-Commerce Mobile App" loading="lazy" />
+            <div class="work-overlay">
+              <span class="view-btn">View Case Details</span>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span class="work-category">Mobile & Flutter</span>
+              <span class="work-year">2026</span>
+            </div>
+            <h3 class="work-title">E-Commerce Mobile App</h3>
+            <p class="work-excerpt">Modern shopping experience with seamless automated checkout, fluid animations, and
+              real-time order tracking.</p>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="work-card" data-category="fintech" data-id="fintech">
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+              alt="FinTech Dashboard" loading="lazy" />
+            <div class="work-overlay">
+              <span class="view-btn">View Case Details</span>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span class="work-category">FinTech & Analytics</span>
+              <span class="work-year">2026</span>
+            </div>
+            <h3 class="work-title">FinTech Analytics Dashboard</h3>
+            <p class="work-excerpt">Real-time data visualization, financial ledger management, and secure API processing
+              platform.</p>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="work-card" data-category="web" data-id="travel">
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
+              alt="Travel Booking UI" loading="lazy" />
+            <div class="work-overlay">
+              <span class="view-btn">View Case Details</span>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span class="work-category">Interactive Web UI</span>
+              <span class="work-year">2025</span>
+            </div>
+            <h3 class="work-title">Travel Booking Experience</h3>
+            <p class="work-excerpt">Immersive web interface for discovering, customizing, and booking luxury global
+              travel itineraries.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOALS & CORE VALUES -->
+  <section class="section section-light" id="goals">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag dark-tag">05 / CORE VALUES</div>
+        <h2 class="section-title dark-text">Our Strategic Goals</h2>
+      </div>
+
+      <div class="goals-wrapper">
+        <div class="goal-card">
+          <div class="goal-icon-badge"><i class="fas fa-clipboard-check"></i></div>
+          <div class="goal-info">
+            <h3>Deliver Excellence</h3>
+            <p>Maintain uncompromising quality and high engineering standards across every design and code release.</p>
+          </div>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-icon-badge"><i class="fas fa-users"></i></div>
+          <div class="goal-info">
+            <h3>Customer Satisfaction</h3>
+            <p>Build enduring client partnerships by deeply understanding requirements and consistently delivering
+              value.</p>
+          </div>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-icon-badge"><i class="fas fa-globe"></i></div>
+          <div class="goal-info">
+            <h3>Scalable Global Growth</h3>
+            <p>Expand our digital services worldwide with a responsive, time-zone friendly engineering team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT TEAM SECTION -->
+  <section class="section section-dark" id="team">
+    <div class="container">
+      <div class="section-header center-text" style="max-width: 700px; margin: 0 auto 60px auto;">
+        <div class="section-tag">06 / THE MINDS BEHIND</div>
+        <h2 class="section-title">Management Team</h2>
+        <p class="section-desc">Meet the visionaries, designers, and full-stack developers driving TechMorph Pvt. Ltd.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="member-avatar">S</div>
+          <h3 class="member-name">Siddhant Meher</h3>
+          <span class="member-role">Founder</span>
+        </div>
+
+        <div class="team-card">
+          <div class="member-avatar">H</div>
+          <h3 class="member-name">Harsh Patil</h3>
+          <span class="member-role">Co-Founder</span>
+        </div>
+
+        <div class="team-card">
+          <div class="member-avatar">C</div>
+          <h3 class="member-name">Chinmay Gawad</h3>
+          <span class="member-role">Backend Developer</span>
+        </div>
+
+        <div class="team-card">
+          <div class="member-avatar">S</div>
+          <h3 class="member-name">Swagat Bhoir</h3>
+          <span class="member-role">Backend Developer</span>
+        </div>
+
+        <div class="team-card">
+          <div class="member-avatar">C</div>
+          <h3 class="member-name">Chirag Patil</h3>
+          <span class="member-role">Frontend Developer</span>
+        </div>
+
+        <div class="team-card">
+          <div class="member-avatar">S</div>
+          <h3 class="member-name">Sahil Gawad</h3>
+          <span class="member-role">Frontend Developer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section section-light" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-left">
+          <div class="section-tag dark-tag">07 / GET IN TOUCH</div>
+          <h2 class="contact-heading">Let's Create Something Amazing Together</h2>
+          <p class="contact-subtext">Ready to transform your digital presence? Reach out to TechMorph Pvt. Ltd. today.
+          </p>
+
+          <div class="direct-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:techmorphpvt@gmail.com">techmorphpvt@gmail.com</a>
+          </div>
+
+          <div class="social-icon-row">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <button class="cta-btn open-contact-modal" style="width: 100%; justify-content: center;">
+            <span class="cta-btn-bg" style="width: calc(100% - 16px);"></span>
+            <span class="cta-btn-text" style="padding: 18px 40px;">Launch Inquiry Form</span>
+            <span class="cta-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2>TechMorph Pvt. Ltd.</h2>
+          <p>Building high-impact web & mobile experiences at the intersection of creativity and technology.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 TechMorph Pvt. Ltd. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Work</a>
+          <a href="#team">Team</a>
+          <a href="mailto:techmorphpvt@gmail.com">techmorphpvt@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAIL MODAL -->
+  <div class="modal" id="project-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Content inserted dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL FORM -->
+  <div class="modal" id="contact-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="contact-backdrop"></div>
+    <div class="modal-content contact-modal-content">
+      <button class="modal-close" id="contact-close" aria-label="Close modal">&times;</button>
+      <div class="contact-form-wrapper">
+        <h2 class="form-title">Contact TechMorph</h2>
+        <p class="form-subtitle">Send your project inquiry to techmorphpvt@gmail.com. We respond within 24 hours.</p>
+
+        <form id="project-inquiry-form" onsubmit="event.preventDefault(); handleFormSubmit();">
+          <div class="form-group">
+            <label for="client-name">Your Name / Organization *</label>
+            <input type="text" id="client-name" required placeholder="e.g. Siddhant Meher / TechMorph" />
+          </div>
+
+          <div class="form-group">
+            <label for="client-email">Email Address *</label>
+            <input type="email" id="client-email" required placeholder="name@company.com" />
+          </div>
+
+          <div class="form-group">
+            <label>Services Required</label>
+            <div class="checkbox-group">
+              <label class="chip-checkbox">
+                <input type="checkbox" name="service" value="web" checked />
+                <span>Web & Mobile Apps</span>
+              </label>
+              <label class="chip-checkbox">
+                <input type="checkbox" name="service" value="uiux" />
+                <span>UI/UX Design</span>
+              </label>
+              <label class="chip-checkbox">
+                <input type="checkbox" name="service" value="fullstack" />
+                <span>Full Stack Solutions</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="project-details">Tell Us About Your Project</label>
+            <textarea id="project-details" rows="4"
+              placeholder="Describe your goals, requirements, and timeline..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-form-btn">
+            Send Message to TechMorph
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+        <div id="form-success-msg" class="form-success-msg d-none">
+          ✨ Thank you! Your message has been received by TechMorph Pvt. Ltd. We'll be in touch shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
