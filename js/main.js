@@ -227,20 +227,67 @@
   if (contactClose) contactClose.addEventListener('click', closeContact);
   if (contactBackdrop) contactBackdrop.addEventListener('click', closeContact);
 
-  window.handleFormSubmit = function() {
+  const CONTACT_API = '/api/contact';
+  const submitBtnDefaultHtml = `
+    Send Message to TechMorph
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="22" y1="2" x2="11" y2="13"></line>
+      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+    </svg>
+  `;
+
+  function showFormSuccess(form, msg) {
+    form.style.display = 'none';
+    msg.classList.remove('d-none');
+    setTimeout(() => {
+      closeContact();
+      setTimeout(() => {
+        form.reset();
+        form.style.display = 'block';
+        msg.classList.add('d-none');
+      }, 500);
+    }, 3000);
+  }
+
+  window.handleFormSubmit = async function() {
     const form = document.getElementById('project-inquiry-form');
     const msg = document.getElementById('form-success-msg');
-    if (form && msg) {
-      form.style.display = 'none';
-      msg.classList.remove('d-none');
-      setTimeout(() => {
-        closeContact();
-        setTimeout(() => {
-          form.reset();
-          form.style.display = 'block';
-          msg.classList.add('d-none');
-        }, 500);
-      }, 3000);
+    const errorMsg = document.getElementById('form-error-msg');
+    const submitBtn = form?.querySelector('.submit-form-btn');
+
+    if (!form || !msg) return;
+
+    const name = document.getElementById('client-name')?.value?.trim();
+    const email = document.getElementById('client-email')?.value?.trim();
+    const services = [...form.querySelectorAll('input[name="service"]:checked')].map((cb) => cb.value);
+    const details = document.getElementById('project-details')?.value?.trim() || '';
+
+    if (errorMsg) errorMsg.classList.add('d-none');
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+    }
+
+    try {
+      const response = await fetch(CONTACT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, services, details }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      showFormSuccess(form, msg);
+    } catch (err) {
+      if (errorMsg) errorMsg.classList.remove('d-none');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = submitBtnDefaultHtml;
+      }
     }
   };
 
