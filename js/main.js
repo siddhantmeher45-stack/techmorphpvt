@@ -1,16 +1,29 @@
 (function() {
   'use strict';
 
-  // ===== 1. WORD REVEAL ANIMATION =====
+  // ===== 1. WORD REVEAL & KINETIC TYPOGRAPHY ANIMATION =====
   const headline = document.getElementById('headline');
   if (headline) {
-    const text = "We build immersive web & mobile experiences that hang between creativity and technology.";
-    const words = text.split(' ');
-    words.forEach(function(word, i) {
+    const headlineWords = [
+      { text: "We", highlight: false },
+      { text: "engineer", highlight: false },
+      { text: "immersive", highlight: true, style: "cyan-blue" },
+      { text: "web", highlight: false },
+      { text: "&", highlight: false },
+      { text: "mobile", highlight: false },
+      { text: "experiences", highlight: true, style: "cyan-blue" },
+      { text: "driven", highlight: false },
+      { text: "by", highlight: false },
+      { text: "creativity", highlight: true, style: "purple-pink" },
+      { text: "and", highlight: false },
+      { text: "technology.", highlight: true, style: "cyan-blue" }
+    ];
+
+    headlineWords.forEach(function(item, i) {
       const span = document.createElement('span');
-      span.className = 'word-reveal';
-      span.textContent = word;
-      span.style.animationDelay = (1 + i * 0.05) + 's';
+      span.className = 'word-reveal' + (item.highlight ? ' highlight-' + item.style : '');
+      span.textContent = item.text;
+      span.style.animationDelay = (0.7 + i * 0.055) + 's';
       headline.appendChild(span);
     });
   }
