@@ -31,6 +31,7 @@
   // ===== 2. BURGER MENU & PANEL TOGGLE =====
   const burgerBtn = document.getElementById('burger-btn');
   const menuPanel = document.getElementById('menu-panel');
+  const menuBackdrop = document.getElementById('menu-backdrop');
   let menuOpen = false;
 
   function toggleMenu(open) {
@@ -38,11 +39,15 @@
     if (menuOpen) {
       burgerBtn.classList.add('open');
       menuPanel.classList.add('open');
+      if (menuBackdrop) menuBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
       menuPanel.setAttribute('aria-hidden', 'false');
       burgerBtn.setAttribute('aria-label', 'Close menu');
     } else {
       burgerBtn.classList.remove('open');
       menuPanel.classList.remove('open');
+      if (menuBackdrop) menuBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
       menuPanel.setAttribute('aria-hidden', 'true');
       burgerBtn.setAttribute('aria-label', 'Open menu');
     }
@@ -57,7 +62,11 @@
       drawerCloseBtn.addEventListener('click', () => toggleMenu(false));
     }
 
-    menuPanel.querySelectorAll('.menu-nav a, .menu-socials a').forEach(a => {
+    if (menuBackdrop) {
+      menuBackdrop.addEventListener('click', () => toggleMenu(false));
+    }
+
+    menuPanel.querySelectorAll('.menu-nav a, .menu-socials a, .open-contact-modal').forEach(a => {
       a.addEventListener('click', () => toggleMenu(false));
     });
   }

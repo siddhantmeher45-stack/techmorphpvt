@@ -2047,3 +2047,443 @@ html, body {
   }
 }
 
+/* ===== NAVIGATION DRAWER BACKDROP ===== */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 98;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.menu-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE & TABLET RESPONSIVE SYSTEM
+   ========================================================================== */
+
+/* ===== TABLETS & MEDIUM SCREENS (<= 992px) ===== */
+@media (max-width: 992px) {
+  .hero-headline {
+    font-size: clamp(32px, 5.5vw, 54px);
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .stripe-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 32px;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* ===== PHONES & SMALL TABLETS (<= 768px) ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .header {
+    height: 76px;
+    padding: 0 16px;
+  }
+
+  .header.scrolled {
+    height: 68px;
+  }
+
+  .brand-logo {
+    padding: 6px 14px 6px 10px;
+    gap: 8px;
+  }
+  .brand-logo svg {
+    width: 30px;
+    height: 30px;
+  }
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .burger-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .menu-panel {
+    left: 8px;
+    right: 8px;
+    padding: 24px 20px 20px 20px;
+    max-height: 90vh;
+    border-radius: 20px;
+  }
+  .menu-panel.open {
+    top: 8px;
+  }
+
+  .menu-nav .menu-link {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+
+  /* Hero Section Mobile */
+  .hero {
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+
+  .hero-content {
+    padding: 110px 16px 50px 16px;
+  }
+
+  .hero-content-inner {
+    gap: 16px;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+
+  .hero-headline {
+    font-size: clamp(28px, 6.5vw, 44px);
+    line-height: 1.18;
+    max-width: 100%;
+  }
+
+  .hero-subheadline {
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .hero-action-row {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-action-row .cta-btn,
+  .hero-action-row .secondary-scroll-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero .secondary-scroll-btn {
+    padding: 14px 20px;
+    font-size: 15px;
+    justify-content: center;
+  }
+
+  .hero-trust-bar {
+    width: 100%;
+    justify-content: center;
+    font-size: 12.5px;
+    padding: 8px 14px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-base-img,
+  .hero-reveal-img {
+    opacity: 0.15 !important;
+    background-position: center center;
+  }
+
+  /* Ticker Bridge */
+  .hero-ticker-bridge {
+    padding: 14px 0;
+  }
+  .ticker-item {
+    font-size: 12px;
+  }
+
+  /* Section Title & Tag */
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: clamp(26px, 5.5vw, 36px);
+    margin-bottom: 14px;
+  }
+  .section-desc {
+    font-size: 15.5px;
+  }
+
+  /* Vision Mission Grid */
+  .grid-2-col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .glass-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+  .card-icon-header h3 {
+    font-size: 22px;
+  }
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    border-radius: 14px;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+  .service-title {
+    font-size: 19px;
+  }
+
+  /* Portfolio Grid & Filter Bar */
+  .filter-bar {
+    gap: 8px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .work-card {
+    border-radius: 20px;
+  }
+  .work-thumb {
+    height: 220px;
+  }
+  .work-info {
+    padding: 22px 20px;
+  }
+  .work-title {
+    font-size: 20px;
+  }
+
+  /* Goals */
+  .goals-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .goal-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  /* Stripe Team Grid */
+  .stripe-team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .stripe-team-card {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+  .stripe-member-name {
+    font-size: 18px;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .testimonial-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  /* Contact Box */
+  .contact-box {
+    padding: 32px 22px;
+    border-radius: 20px;
+  }
+  .contact-heading {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+  .direct-contact-item {
+    font-size: 15px;
+    padding: 8px 16px;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 60px 0 35px 0;
+  }
+  .footer-brand h2 {
+    font-size: 26px;
+  }
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 24px;
+    gap: 16px;
+  }
+  .footer-links {
+    gap: 14px 20px;
+  }
+
+  /* Modals */
+  .modal {
+    padding: 12px;
+  }
+  .modal-content {
+    padding: 28px 20px;
+    border-radius: 20px;
+    max-height: 90vh;
+  }
+  .modal-close {
+    top: 16px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+  .form-title {
+    font-size: 24px;
+  }
+
+  /* Back to top button */
+  .back-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+}
+
+/* ===== EXTRA SMALL SMARTPHONES (<= 480px) ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    padding: 0 12px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .hero-content {
+    padding: 95px 12px 40px 12px;
+  }
+
+  .hero-headline {
+    font-size: 26px;
+  }
+
+  .hero-subheadline {
+    font-size: 14px;
+  }
+
+  .cta-btn-text {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .cta-btn-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .metric-card {
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .metric-number {
+    font-size: 42px;
+  }
+
+  .glass-card,
+  .service-card,
+  .goal-card,
+  .stripe-team-card,
+  .testimonial-card,
+  .contact-box {
+    padding: 22px 16px;
+  }
+
+  .direct-contact-item {
+    font-size: 13.5px;
+    padding: 8px 12px;
+  }
+  .direct-contact-item a {
+    word-break: break-all;
+  }
+
+  .stripe-avatar-box {
+    width: 44px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .tech-icon-pill {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .checkbox-group {
+    gap: 8px;
+  }
+  .chip-checkbox span {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .submit-form-btn {
+    font-size: 14.5px;
+    padding: 14px;
+  }
+}
+
+
