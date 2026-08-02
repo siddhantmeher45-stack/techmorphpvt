@@ -44,42 +44,62 @@
   }
 
   // ===== 3. HARDWARE-ACCELERATED SPOTLIGHT REVEAL =====
-  const SPOTLIGHT_R = 280;
   const imgLayer = document.getElementById('reveal-img');
   const heroSection = document.getElementById('home');
 
   if (imgLayer && heroSection) {
-    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const smooth = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let smoothX = mouseX;
+    let smoothY = mouseY;
     let isHovering = false;
+    let animationFrameId = null;
 
-    window.addEventListener('mousemove', function(e) {
-      const rect = heroSection.getBoundingClientRect();
-      if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY - rect.top;
-        if (!isHovering) {
-          isHovering = true;
-          imgLayer.style.opacity = '1';
+    function updateSpotlight() {
+      if (isHovering) {
+        const dx = mouseX - smoothX;
+        const dy = mouseY - smoothY;
+
+        smoothX += dx * 0.15;
+        smoothY += dy * 0.15;
+
+        imgLayer.style.setProperty('--spotlight-x', `${smoothX.toFixed(1)}px`);
+        imgLayer.style.setProperty('--spotlight-y', `${smoothY.toFixed(1)}px`);
+
+        if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+          animationFrameId = requestAnimationFrame(updateSpotlight);
+        } else {
+          animationFrameId = null;
         }
-      } else if (isHovering) {
+      } else {
+        animationFrameId = null;
+      }
+    }
+
+    function triggerSpotlightUpdate() {
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(updateSpotlight);
+      }
+    }
+
+    heroSection.addEventListener('mousemove', function(e) {
+      const rect = heroSection.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+
+      if (!isHovering) {
+        isHovering = true;
+        imgLayer.style.opacity = '1';
+      }
+      triggerSpotlightUpdate();
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', function() {
+      if (isHovering) {
         isHovering = false;
         imgLayer.style.opacity = '0';
       }
     });
-
-    function updateSpotlight() {
-      if (isHovering) {
-        smooth.x += (mouse.x - smooth.x) * 0.12;
-        smooth.y += (mouse.y - smooth.y) * 0.12;
-
-        const maskStyle = `radial-gradient(circle ${SPOTLIGHT_R}px at ${smooth.x}px ${smooth.y}px, black 0%, black 40%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.12) 88%, transparent 100%)`;
-        imgLayer.style.webkitMaskImage = maskStyle;
-        imgLayer.style.maskImage = maskStyle;
-      }
-      requestAnimationFrame(updateSpotlight);
-    }
-    requestAnimationFrame(updateSpotlight);
   }
 
   // ===== 4. PORTFOLIO FILTERING =====
@@ -115,7 +135,7 @@
       year: "2026",
       client: "Global Retail Brand",
       role: "Full-Stack Mobile Engineering (TechMorph)",
-      heroImg: "https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=1200&q=80",
+      heroImg: "images/ecommerce-app.jpg",
       description: "A cross-platform mobile shopping application engineered with Flutter, focusing on seamless multi-currency checkout, low-latency catalog filtering, and real-time push notification tracking.",
       highlights: [
         "Cross-platform iOS & Android deployment powered by Flutter & Antigravity.",
@@ -129,7 +149,7 @@
       year: "2026",
       client: "Apex Capital Systems",
       role: "UI/UX & Full-Stack Development",
-      heroImg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      heroImg: "images/fintech-dash.jpg",
       description: "A high-density financial analytics dashboard designed for real-time asset monitoring, transaction ledger auditing, and interactive chart visualizations.",
       highlights: [
         "Real-time WebSocket data stream integration.",
@@ -143,7 +163,7 @@
       year: "2025",
       client: "Wanderlust Destinations",
       role: "Web Design & Frontend Development",
-      heroImg: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
+      heroImg: "images/travel-app.jpg",
       description: "An immersive travel platform featuring interactive destination maps, personalized itinerary planners, and instant booking confirmation.",
       highlights: [
         "Fluid micro-animations and micro-interactions on itinerary selection.",
@@ -210,8 +230,17 @@
   const contactBackdrop = document.getElementById('contact-backdrop');
   const openContactBtns = document.querySelectorAll('.open-contact-modal');
 
-  function openContact() {
+  function openContact(serviceVal) {
     toggleMenu(false);
+    if (serviceVal) {
+      const form = document.getElementById('project-inquiry-form');
+      if (form) {
+        const checkboxes = form.querySelectorAll('input[name="service"]');
+        checkboxes.forEach(cb => {
+          cb.checked = (cb.value === serviceVal);
+        });
+      }
+    }
     contactModal.classList.add('open');
     contactModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -223,8 +252,13 @@
     document.body.style.overflow = '';
   }
 
-  openContactBtns.forEach(btn => btn.addEventListener('click', openContact));
-  if (contactClose) contactClose.addEventListener('click', closeContact);
+  openContactBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const serviceVal = btn.getAttribute('data-service');
+      openContact(serviceVal);
+    });
+  });if (contactClose) contactClose.addEventListener('click', closeContact);
   if (contactBackdrop) contactBackdrop.addEventListener('click', closeContact);
 
   const CONTACT_API = '/api/contact';
@@ -324,5 +358,45 @@
 
   window.addEventListener('scroll', animateCounters);
   animateCounters();
+
+  // ===== 8. SCROLL PROGRESS BAR, HEADER SCROLL BLUR, & BACK TO TOP =====
+  const progressBar = document.getElementById('scroll-progress');
+  const headerElem = document.querySelector('.header');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  function handleScrollEffects() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    if (progressBar && height > 0) {
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    }
+
+    if (headerElem) {
+      if (winScroll > 40) {
+        headerElem.classList.add('scrolled');
+      } else {
+        headerElem.classList.remove('scrolled');
+      }
+    }
+
+    if (backToTopBtn) {
+      if (winScroll > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollEffects);
+  handleScrollEffects();
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 })();

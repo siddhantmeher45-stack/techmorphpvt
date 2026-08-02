@@ -14,11 +14,18 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Anton&display=swap"
     rel="stylesheet" />
 
+  <!-- PRELOAD CRITICAL HERO ASSETS -->
+  <link rel="preload" as="image" href="images/hero-base.png" />
+  <link rel="preload" as="image" href="images/hero-reveal.png" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
 
   <!-- SPLASH CURTAIN -->
   <div class="splash" id="splash">
@@ -115,12 +122,12 @@
   <main class="hero" id="home">
     <!-- Base image layer -->
     <div class="hero-base-img hero-image-animate"
-      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/5c9f982199fde1d9b85a20e5396f0fa7bacaf9a3.png?w=2560');">
+      style="background-image:url('images/hero-base.png');">
     </div>
 
     <!-- Reveal layer spotlight masked -->
     <div class="hero-reveal-img" id="reveal-img"
-      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/6be2165e31648955b4e071f4cf2a50bc572b9bfd.png?w=1536');">
+      style="background-image:url('images/hero-reveal.png');">
     </div>
 
     <!-- Content overlay -->
@@ -257,6 +264,12 @@
           <h3 class="service-title">Web & Mobile App Development</h3>
           <p class="service-desc">Robust, high-performance, and scalable mobile & web applications engineered to match
             your business goals.</p>
+          <div class="service-tech-tags">
+            <span>Flutter</span><span>React Native</span><span>iOS / Android</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="web">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -264,6 +277,12 @@
           <h3 class="service-title">UI/UX Design</h3>
           <p class="service-desc">Intuitive visual interfaces, interactive wireframes, and engaging user journeys
             providing superior user experience.</p>
+          <div class="service-tech-tags">
+            <span>Figma</span><span>Design Systems</span><span>Prototyping</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="uiux">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -271,6 +290,12 @@
           <h3 class="service-title">Full Stack Development</h3>
           <p class="service-desc">End-to-end frontend and backend architecture built for speed, security, and effortless
             cloud scalability.</p>
+          <div class="service-tech-tags">
+            <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>AWS</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="fullstack">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -278,6 +303,12 @@
           <h3 class="service-title">Responsive Website Design</h3>
           <p class="service-desc">Fluid, ultra-modern websites designed to look and perform flawlessly on smartphones,
             tablets, and desktops.</p>
+          <div class="service-tech-tags">
+            <span>HTML5/CSS3</span><span>JavaScript</span><span>SEO</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="web">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -285,6 +316,12 @@
           <h3 class="service-title">Custom Software Solutions</h3>
           <p class="service-desc">Tailored enterprise software and specialized tools designed specifically for your
             operational workflows.</p>
+          <div class="service-tech-tags">
+            <span>REST APIs</span><span>Microservices</span><span>Docker</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="fullstack">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -312,8 +349,7 @@
         <!-- Project 1 -->
         <article class="work-card" data-category="mobile" data-id="ecommerce">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=1200&q=80"
-              alt="E-Commerce Mobile App" loading="lazy" />
+            <img src="images/ecommerce-app.jpg" alt="E-Commerce Mobile App" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -332,8 +368,7 @@
         <!-- Project 2 -->
         <article class="work-card" data-category="fintech" data-id="fintech">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-              alt="FinTech Dashboard" loading="lazy" />
+            <img src="images/fintech-dash.jpg" alt="FinTech Dashboard" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -352,8 +387,7 @@
         <!-- Project 3 -->
         <article class="work-card" data-category="web" data-id="travel">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
-              alt="Travel Booking UI" loading="lazy" />
+            <img src="images/travel-app.jpg" alt="Travel Booking UI" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -413,47 +447,177 @@
   <section class="section section-dark" id="team">
     <div class="container">
       <div class="section-header center-text" style="max-width: 700px; margin: 0 auto 60px auto;">
-        <div class="section-tag">06 / THE MINDS BEHIND</div>
+        <div class="section-tag">06 / LEADERSHIP & ENGINEERING</div>
         <h2 class="section-title">Management Team</h2>
-        <p class="section-desc">Meet the visionaries, designers, and full-stack developers driving TechMorph Pvt. Ltd.
-        </p>
+        <p class="section-desc">Meet the software engineers, designers, and full-stack architects driving TechMorph Pvt. Ltd.</p>
       </div>
 
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Siddhant Meher</h3>
-          <span class="member-role">Founder</span>
+      <div class="stripe-team-grid">
+        <!-- Founder 1 -->
+        <div class="stripe-team-card founder-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-founder"><i class="fas fa-crown"></i> Founder & Lead Architect</span>
+              <span class="status-pulse-dot" title="Active Core Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SM</div>
+              <div>
+                <h3 class="stripe-member-name">Siddhant Meher</h3>
+                <span class="stripe-member-title">Full Stack Systems & Software Engineering</span>
+              </div>
+            </div>
+            <p class="stripe-member-bio">Leads core technical architecture, cloud infrastructure, and full-stack product engineering at TechMorph.</p>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-node-js" style="color: #68A063;"></i> Node.js</span>
+              <span class="tech-icon-pill"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+              <span class="tech-icon-pill"><i class="fas fa-mobile-alt" style="color: #00F2FE;"></i> Flutter</span>
+              <span class="tech-icon-pill"><i class="fab fa-aws" style="color: #FF9900;"></i> AWS</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/siddhantmeher45-stack" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">H</div>
-          <h3 class="member-name">Harsh Patil</h3>
-          <span class="member-role">Co-Founder</span>
+        <!-- Founder 2 -->
+        <div class="stripe-team-card founder-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-founder"><i class="fas fa-award"></i> Co-Founder & Design Lead</span>
+              <span class="status-pulse-dot" title="Active Design Lead"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">HP</div>
+              <div>
+                <h3 class="stripe-member-name">Harsh Patil</h3>
+                <span class="stripe-member-title">UI/UX Systems & Product Strategy</span>
+              </div>
+            </div>
+            <p class="stripe-member-bio">Spearheads visual identity, user experience design systems, and product interaction models for all client projects.</p>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-figma" style="color: #F24E1E;"></i> Figma</span>
+              <span class="tech-icon-pill"><i class="fas fa-vector-square" style="color: #00F2FE;"></i> UI/UX</span>
+              <span class="tech-icon-pill"><i class="fas fa-layer-group" style="color: #A855F7;"></i> Systems</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">C</div>
-          <h3 class="member-name">Chinmay Gawad</h3>
-          <span class="member-role">Backend Developer</span>
+        <!-- Engineer 1 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev">Backend Engineering</span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">CG</div>
+              <div>
+                <h3 class="stripe-member-name">Chinmay Gawad</h3>
+                <span class="stripe-member-title">Backend & Database Specialist</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-node-js" style="color: #68A063;"></i> Node.js</span>
+              <span class="tech-icon-pill"><i class="fas fa-database" style="color: #00F2FE;"></i> SQL / NoSQL</span>
+              <span class="tech-icon-pill"><i class="fas fa-server" style="color: #4FACFE;"></i> REST APIs</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">C</div>
-          <h3 class="member-name">Chirag Patil</h3>
-          <span class="member-role">Backend Developer</span>
+        <!-- Engineer 2 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev">Backend Engineering</span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">CP</div>
+              <div>
+                <h3 class="stripe-member-name">Chirag Patil</h3>
+                <span class="stripe-member-title">Python & Microservices Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+              <span class="tech-icon-pill"><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</span>
+              <span class="tech-icon-pill"><i class="fas fa-cogs" style="color: #A855F7;"></i> Microservices</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Swagat Bhoir</h3>
-          <span class="member-role">Frontend Developer</span>
+        <!-- Engineer 3 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev">Frontend Engineering</span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SB</div>
+              <div>
+                <h3 class="stripe-member-name">Swagat Bhoir</h3>
+                <span class="stripe-member-title">Frontend React Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+              <span class="tech-icon-pill"><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+              <span class="tech-icon-pill"><i class="fab fa-css3-alt" style="color: #1572B6;"></i> CSS3</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Sahil Gawad</h3>
-          <span class="member-role">Frontend Developer</span>
+        <!-- Engineer 4 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev">Frontend & Mobile</span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SG</div>
+              <div>
+                <h3 class="stripe-member-name">Sahil Gawad</h3>
+                <span class="stripe-member-title">Mobile & UI Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fas fa-mobile-alt" style="color: #02569B;"></i> Flutter</span>
+              <span class="tech-icon-pill"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5</span>
+              <span class="tech-icon-pill"><i class="fas fa-code" style="color: #00F2FE;"></i> UI Specs</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -594,6 +758,11 @@
       </div>
     </div>
   </div>
+
+  <!-- BACK TO TOP FLOATING BUTTON -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
   <script src="js/main.js"></script>
 </body>
