@@ -48,8 +48,14 @@
     }
   }
 
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
   if (burgerBtn && menuPanel) {
     burgerBtn.addEventListener('click', () => toggleMenu());
+
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', () => toggleMenu(false));
+    }
 
     menuPanel.querySelectorAll('.menu-nav a, .menu-socials a').forEach(a => {
       a.addEventListener('click', () => toggleMenu(false));

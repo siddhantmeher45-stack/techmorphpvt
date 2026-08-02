@@ -19,7 +19,7 @@
   <link rel="preload" as="image" href="images/hero-reveal.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css?v=2.0" />
+  <link rel="stylesheet" href="css/styles.css?v=4.0" />
 </head>
 
 <body>
@@ -82,34 +82,53 @@
 
   <!-- NAVIGATION DRAWER PANEL -->
   <div class="menu-panel" id="menu-panel" aria-hidden="true">
+    <!-- Ambient Depth Glow -->
+    <div class="drawer-ambient-glow"></div>
+
     <div class="menu-header">
-      <span class="menu-label">Navigation</span>
+      <div class="drawer-badge">
+        <span class="badge-sparkle">✦</span>
+        <span>NAVIGATION MENU</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close navigation menu">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
+
     <nav class="menu-nav">
-      <a href="#home" class="menu-link">Home</a>
-      <a href="#about" class="menu-link">About Us</a>
-      <a href="#vision-mission" class="menu-link">Vision & Mission</a>
-      <a href="#services" class="menu-link">Our Services</a>
-      <a href="#portfolio" class="menu-link">Recent Work</a>
-      <a href="#goals" class="menu-link">Core Values</a>
-      <a href="#team" class="menu-link">Management Team</a>
-      <a href="#contact" class="menu-link">Contact</a>
+      <a href="#home" class="menu-link"><span class="link-num">01</span><span class="link-text">Home</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#about" class="menu-link"><span class="link-num">02</span><span class="link-text">About Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#vision-mission" class="menu-link"><span class="link-num">03</span><span class="link-text">Vision & Mission</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#services" class="menu-link"><span class="link-num">04</span><span class="link-text">Our Services</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#portfolio" class="menu-link"><span class="link-num">05</span><span class="link-text">Recent Work</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#goals" class="menu-link"><span class="link-num">06</span><span class="link-text">Core Values</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#team" class="menu-link"><span class="link-num">07</span><span class="link-text">Management Team</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#contact" class="menu-link"><span class="link-num">08</span><span class="link-text">Contact Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
     </nav>
+
     <div class="menu-contact">
-      <span class="contact-label">Direct Email</span>
-      <a href="mailto:techmorphpvt@gmail.com" class="menu-email">techmorphpvt@gmail.com</a>
+      <div class="contact-pill-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:techmorphpvt@gmail.com" class="menu-email">techmorphpvt@gmail.com</a>
+      </div>
       <div class="menu-socials">
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">Twitter / X</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
+
     <div class="menu-footer">
-      <button class="menu-cta-btn open-contact-modal">
-        <span class="menu-cta-bg"></span>
-        <span class="menu-cta-text">Start a Project</span>
-        <span class="menu-cta-circle">
-          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="drawer-status-bar">
+        <span class="status-pulse-dot"></span>
+        <span>Accepting Client Projects</span>
+      </div>
+      <button class="cta-btn open-contact-modal" style="width: 100%; justify-content: center;">
+        <span class="cta-btn-bg" style="width: calc(100% - 16px);"></span>
+        <span class="cta-btn-text" style="padding: 14px 28px;">Start a Project</span>
+        <span class="cta-btn-circle" style="width: 44px; height: 44px;">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
@@ -616,7 +635,8 @@
         <div class="stripe-team-card">
           <div>
             <div class="card-top-bar">
-              <span class="badge-dev">Full Stack Developer</span>
+              <span class="badge-dev"><i class="fas fa-layer-group"></i> Full Stack Developer</span>
+              <span class="status-pulse-dot" title="Active Core Engineer"></span>
             </div>
             <div class="stripe-card-header">
               <div class="stripe-avatar-box">CG</div>
@@ -657,7 +677,8 @@
         <div class="stripe-team-card">
           <div>
             <div class="card-top-bar">
-              <span class="badge-dev">Backend Engineering</span>
+              <span class="badge-dev"><i class="fas fa-server"></i> Backend Engineering</span>
+              <span class="status-pulse-dot" title="Active Backend Engineer"></span>
             </div>
             <div class="stripe-card-header">
               <div class="stripe-avatar-box">CP</div>
@@ -687,7 +708,8 @@
         <div class="stripe-team-card">
           <div>
             <div class="card-top-bar">
-              <span class="badge-dev">Frontend Engineering</span>
+              <span class="badge-dev"><i class="fas fa-laptop-code"></i> Frontend Engineering</span>
+              <span class="status-pulse-dot" title="Active Frontend Engineer"></span>
             </div>
             <div class="stripe-card-header">
               <div class="stripe-avatar-box">SB</div>
@@ -717,7 +739,8 @@
         <div class="stripe-team-card">
           <div>
             <div class="card-top-bar">
-              <span class="badge-dev">Frontend & Mobile</span>
+              <span class="badge-dev"><i class="fas fa-mobile-alt"></i> Mobile & Frontend</span>
+              <span class="status-pulse-dot" title="Active Mobile Engineer"></span>
             </div>
             <div class="stripe-card-header">
               <div class="stripe-avatar-box">SG</div>
