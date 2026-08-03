@@ -14,11 +14,18 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Anton&display=swap"
     rel="stylesheet" />
 
+  <!-- PRELOAD CRITICAL HERO ASSETS -->
+  <link rel="preload" as="image" href="images/hero-base.png" />
+  <link rel="preload" as="image" href="images/hero-reveal.png" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=4.0" />
 </head>
 
 <body>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
 
   <!-- SPLASH CURTAIN -->
   <div class="splash" id="splash">
@@ -73,36 +80,56 @@
     </div>
   </header>
 
-  <!-- NAVIGATION DRAWER PANEL -->
+  <!-- NAVIGATION DRAWER BACKDROP & PANEL -->
+  <div class="menu-backdrop" id="menu-backdrop"></div>
   <div class="menu-panel" id="menu-panel" aria-hidden="true">
+    <!-- Ambient Depth Glow -->
+    <div class="drawer-ambient-glow"></div>
+
     <div class="menu-header">
-      <span class="menu-label">Navigation</span>
+      <div class="drawer-badge">
+        <span class="badge-sparkle">✦</span>
+        <span>NAVIGATION MENU</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close navigation menu">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
+
     <nav class="menu-nav">
-      <a href="#home" class="menu-link">Home</a>
-      <a href="#about" class="menu-link">About Us</a>
-      <a href="#vision-mission" class="menu-link">Vision & Mission</a>
-      <a href="#services" class="menu-link">Our Services</a>
-      <a href="#portfolio" class="menu-link">Recent Work</a>
-      <a href="#goals" class="menu-link">Core Values</a>
-      <a href="#team" class="menu-link">Management Team</a>
-      <a href="#contact" class="menu-link">Contact</a>
+      <a href="#home" class="menu-link"><span class="link-num">01</span><span class="link-text">Home</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#about" class="menu-link"><span class="link-num">02</span><span class="link-text">About Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#vision-mission" class="menu-link"><span class="link-num">03</span><span class="link-text">Vision & Mission</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#services" class="menu-link"><span class="link-num">04</span><span class="link-text">Our Services</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#portfolio" class="menu-link"><span class="link-num">05</span><span class="link-text">Recent Work</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#goals" class="menu-link"><span class="link-num">06</span><span class="link-text">Core Values</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#team" class="menu-link"><span class="link-num">07</span><span class="link-text">Management Team</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#contact" class="menu-link"><span class="link-num">08</span><span class="link-text">Contact Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
     </nav>
+
     <div class="menu-contact">
-      <span class="contact-label">Direct Email</span>
-      <a href="mailto:techmorphpvt@gmail.com" class="menu-email">techmorphpvt@gmail.com</a>
+      <div class="contact-pill-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:techmorphpvt@gmail.com" class="menu-email">techmorphpvt@gmail.com</a>
+      </div>
       <div class="menu-socials">
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">Twitter / X</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
+
     <div class="menu-footer">
-      <button class="menu-cta-btn open-contact-modal">
-        <span class="menu-cta-bg"></span>
-        <span class="menu-cta-text">Start a Project</span>
-        <span class="menu-cta-circle">
-          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="drawer-status-bar">
+        <span class="status-pulse-dot"></span>
+        <span>Accepting Client Projects</span>
+      </div>
+      <button class="cta-btn open-contact-modal" style="width: 100%; justify-content: center;">
+        <span class="cta-btn-bg" style="width: calc(100% - 16px);"></span>
+        <span class="cta-btn-text" style="padding: 14px 28px;">Start a Project</span>
+        <span class="cta-btn-circle" style="width: 44px; height: 44px;">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
@@ -113,25 +140,44 @@
 
   <!-- HERO SECTION -->
   <main class="hero" id="home">
+    <!-- Ambient Depth Glow & Mesh Overlay -->
+    <div class="hero-ambient-glow hero-glow-1"></div>
+    <div class="hero-ambient-glow hero-glow-2"></div>
+    <div class="hero-grid-overlay"></div>
+
     <!-- Base image layer -->
-    <div class="hero-base-img hero-image-animate"
-      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/5c9f982199fde1d9b85a20e5396f0fa7bacaf9a3.png?w=2560');">
+    <div class="hero-base-img hero-image-animate" style="background-image:url('images/hero-base.png');">
     </div>
 
     <!-- Reveal layer spotlight masked -->
-    <div class="hero-reveal-img" id="reveal-img"
-      style="background-image:url('https://soft-zoom-63098134.figma.site/_assets/v11/6be2165e31648955b4e071f4cf2a50bc572b9bfd.png?w=1536');">
+    <div class="hero-reveal-img" id="reveal-img" style="background-image:url('images/hero-reveal.png');">
     </div>
 
     <!-- Content overlay -->
     <div class="hero-content">
       <div class="hero-content-inner">
-        <div class="hero-badge">TECHMORPH PVT. LTD.</div>
+        <!-- Glassmorphic Pill Badge -->
+        <div class="hero-badge">
+          <span class="badge-sparkle">✦</span>
+          <span>TECHMORPH PVT. LTD.</span>
+          <span class="badge-separator">•</span>
+          <span class="badge-subtext">DIGITAL SOLUTIONS</span>
+        </div>
+
+        <!-- Dynamic Hero Headline -->
         <h1 class="hero-headline" id="headline"></h1>
+
+        <!-- Subheadline Copy -->
+        <p class="hero-subheadline">
+          We transform ambitious vision into high-performance web platforms, mobile apps, and bespoke digital software
+          built to scale your business.
+        </p>
+
+        <!-- Hero Action CTAs -->
         <div class="hero-action-row">
           <button class="cta-btn cta-animate open-contact-modal">
             <span class="cta-btn-bg"></span>
-            <span class="cta-btn-text">Start a Project Now</span>
+            <span class="cta-btn-text">Start a Project</span>
             <span class="cta-btn-circle">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
@@ -140,20 +186,73 @@
             </span>
           </button>
           <a href="#portfolio" class="secondary-scroll-btn">
-            Explore Recent Work
+            <span>Explore Work</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <polyline points="19 12 12 19 5 12"></polyline>
             </svg>
           </a>
         </div>
+
+        <!-- Social Proof Trust Stack -->
+        <div class="hero-trust-bar">
+          <div class="rating-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="trust-text"><strong>4.9/5 Rating</strong> from 50+ enterprise & startup projects</span>
+        </div>
       </div>
     </div>
+
+    <!-- Seamless Gradient Bottom Fade -->
+    <div class="hero-bottom-fade"></div>
   </main>
+
+  <!-- CAPABILITIES / TECH TICKER BRIDGE -->
+  <div class="hero-ticker-bridge" aria-label="Core Capabilities Ticker">
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <span class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</span>
+        <span class="ticker-dot">•</span>
+      </div>
+      <!-- Duplicate for seamless infinite loop -->
+      <div class="ticker-content" aria-hidden="true">
+        <span class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</span>
+        <span class="ticker-dot">•</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ABOUT SECTION -->
   <section class="section section-light" id="about">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 450px; height: 450px; top: 10%; right: -100px; background: radial-gradient(circle, rgba(0, 114, 255, 0.08) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="about-layout">
         <div class="about-left">
           <div class="section-tag dark-tag">01 / WHO WE ARE</div>
@@ -209,7 +308,10 @@
 
   <!-- VISION & MISSION SECTION -->
   <section class="section section-dark" id="vision-mission">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 500px; height: 500px; top: 15%; left: -120px; background: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header center-text" style="max-width: 800px; margin: 0 auto 60px auto;">
         <div class="section-tag">02 / PURPOSE & DRIVE</div>
         <h2 class="section-title">Our Vision & Mission</h2>
@@ -244,7 +346,10 @@
 
   <!-- SERVICES SECTION -->
   <section class="section section-dark" id="services" style="border-top: 1px solid rgba(255,255,255,0.06);">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 550px; height: 550px; bottom: 10%; right: -120px; background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
         <div class="section-tag">03 / WHAT WE DO</div>
         <h2 class="section-title">Our Core Services</h2>
@@ -257,6 +362,12 @@
           <h3 class="service-title">Web & Mobile App Development</h3>
           <p class="service-desc">Robust, high-performance, and scalable mobile & web applications engineered to match
             your business goals.</p>
+          <div class="service-tech-tags">
+            <span>Flutter</span><span>React Native</span><span>iOS / Android</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="web">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -264,6 +375,12 @@
           <h3 class="service-title">UI/UX Design</h3>
           <p class="service-desc">Intuitive visual interfaces, interactive wireframes, and engaging user journeys
             providing superior user experience.</p>
+          <div class="service-tech-tags">
+            <span>Figma</span><span>Design Systems</span><span>Prototyping</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="uiux">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -271,6 +388,12 @@
           <h3 class="service-title">Full Stack Development</h3>
           <p class="service-desc">End-to-end frontend and backend architecture built for speed, security, and effortless
             cloud scalability.</p>
+          <div class="service-tech-tags">
+            <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>AWS</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="fullstack">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -278,6 +401,12 @@
           <h3 class="service-title">Responsive Website Design</h3>
           <p class="service-desc">Fluid, ultra-modern websites designed to look and perform flawlessly on smartphones,
             tablets, and desktops.</p>
+          <div class="service-tech-tags">
+            <span>HTML5/CSS3</span><span>JavaScript</span><span>SEO</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="web">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
 
         <div class="service-card">
@@ -285,6 +414,12 @@
           <h3 class="service-title">Custom Software Solutions</h3>
           <p class="service-desc">Tailored enterprise software and specialized tools designed specifically for your
             operational workflows.</p>
+          <div class="service-tech-tags">
+            <span>REST APIs</span><span>Microservices</span><span>Docker</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="fullstack">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -292,7 +427,10 @@
 
   <!-- RECENT PROJECTS / WORK SECTION -->
   <section class="section section-dark" id="portfolio">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 520px; height: 520px; top: 20%; right: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
         <div class="section-tag">04 / RECENT WORK</div>
         <h2 class="section-title">Recent Designs & Projects</h2>
@@ -312,8 +450,7 @@
         <!-- Project 1 -->
         <article class="work-card" data-category="mobile" data-id="ecommerce">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1556742049-0a67daf4005a?auto=format&fit=crop&w=1200&q=80"
-              alt="E-Commerce Mobile App" loading="lazy" />
+            <img src="images/ecommerce-app.jpg" alt="E-Commerce Mobile App" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -332,8 +469,7 @@
         <!-- Project 2 -->
         <article class="work-card" data-category="fintech" data-id="fintech">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-              alt="FinTech Dashboard" loading="lazy" />
+            <img src="images/fintech-dash.jpg" alt="FinTech Dashboard" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -352,8 +488,7 @@
         <!-- Project 3 -->
         <article class="work-card" data-category="web" data-id="travel">
           <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
-              alt="Travel Booking UI" loading="lazy" />
+            <img src="images/travel-app.jpg" alt="Travel Booking UI" loading="lazy" />
             <div class="work-overlay">
               <span class="view-btn">View Case Details</span>
             </div>
@@ -374,7 +509,10 @@
 
   <!-- GOALS & CORE VALUES -->
   <section class="section section-light" id="goals">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 450px; height: 450px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 114, 255, 0.08) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
         <div class="section-tag dark-tag">05 / CORE VALUES</div>
         <h2 class="section-title dark-text">Our Strategic Goals</h2>
@@ -411,49 +549,222 @@
 
   <!-- MANAGEMENT TEAM SECTION -->
   <section class="section section-dark" id="team">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 550px; height: 550px; bottom: 5%; left: -120px; background: radial-gradient(circle, rgba(0, 114, 255, 0.16) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header center-text" style="max-width: 700px; margin: 0 auto 60px auto;">
-        <div class="section-tag">06 / THE MINDS BEHIND</div>
+        <div class="section-tag">06 / LEADERSHIP & ENGINEERING</div>
         <h2 class="section-title">Management Team</h2>
-        <p class="section-desc">Meet the visionaries, designers, and full-stack developers driving TechMorph Pvt. Ltd.
-        </p>
+        <p class="section-desc">Meet the software engineers, designers, and full-stack architects driving TechMorph Pvt.
+          Ltd.</p>
       </div>
 
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Siddhant Meher</h3>
-          <span class="member-role">Founder</span>
+      <div class="stripe-team-grid">
+        <!-- Founder 1 -->
+        <div class="stripe-team-card founder-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-founder"><i class="fas fa-crown"></i> Founder & Lead Architect</span>
+              <span class="status-pulse-dot" title="Active Core Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SM</div>
+              <div>
+                <h3 class="stripe-member-name">Siddhant Meher</h3>
+                <span class="stripe-member-title">Full Stack Systems & Software Engineering</span>
+              </div>
+            </div>
+            <p class="stripe-member-bio">Leads core technical architecture, cloud infrastructure, and full-stack product
+              engineering at TechMorph.</p>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+              <!-- Figma -->
+              <span class="tech-icon-pill"><i class="fab fa-figma" style="color: #F24E1E;"></i> Figma</span>
+
+              <!-- UI/UX -->
+              <span class="tech-icon-pill"><i class="fas fa-vector-square" style="color: #00F2FE;"></i> UI/UX</span>
+
+              <!-- Design Systems -->
+              <span class="tech-icon-pill"><i class="fas fa-layer-group" style="color: #A855F7;"></i> Design
+                Systems</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/siddhantmeher45-stack" target="_blank" rel="noopener"
+                class="stripe-social-link"><i class="fab fa-github"></i> GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">H</div>
-          <h3 class="member-name">Harsh Patil</h3>
-          <span class="member-role">Co-Founder</span>
+        <!-- Founder 2 -->
+        <div class="stripe-team-card founder-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-founder"><i class="fas fa-award"></i> Co-Founder & Design Lead</span>
+              <span class="status-pulse-dot" title="Active Design Lead"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">HP</div>
+              <div>
+                <h3 class="stripe-member-name">Harsh Patil</h3>
+                <span class="stripe-member-title">UI/UX Systems & Product Strategy</span>
+              </div>
+            </div>
+            <p class="stripe-member-bio">Spearheads visual identity, user experience design systems, and product
+              interaction models for all client projects.</p>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-figma" style="color: #F24E1E;"></i> Figma</span>
+              <span class="tech-icon-pill"><i class="fas fa-vector-square" style="color: #00F2FE;"></i> UI/UX</span>
+              <span class="tech-icon-pill"><i class="fas fa-layer-group" style="color: #A855F7;"></i> Systems</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-github"></i>
+                GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">C</div>
-          <h3 class="member-name">Chinmay Gawad</h3>
-          <span class="member-role">Backend Developer</span>
+        <!-- Engineer 1 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev"><i class="fas fa-layer-group"></i> Full Stack Developer</span>
+              <span class="status-pulse-dot" title="Active Core Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">CG</div>
+              <div>
+                <h3 class="stripe-member-name">Chinmay Gawad</h3>
+                <span class="stripe-member-title">Backend & Android Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <!-- FastAPI -->
+              <span class="tech-icon-pill"><i class="fas fa-bolt" style="color: #059669;"></i> FastAPI</span>
+              <!-- Python -->
+              <span class="tech-icon-pill"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+              <!-- Java -->
+              <span class="tech-icon-pill"><i class="fab fa-java" style="color: #ED8B00;"></i> Java</span>
+              <!-- Android -->
+              <span class="tech-icon-pill"><i class="fab fa-android" style="color: #3DDC84;"></i> Android</span>
+              <!-- Kotlin -->
+              <span class="tech-icon-pill"><i class="fas fa-mobile" style="color: #7F52FF;"></i> Kotlin</span>
+              <!-- Git / GitHub -->
+              <span class="tech-icon-pill"><i class="fab fa-git-alt" style="color: #F05032;"></i> Git</span>
+
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/ChinmayGawad" target="_blank" rel="noopener" class="stripe-social-link"><i
+                  class="fab fa-github"></i>
+                GitHub</a>
+              <a href="https://www.linkedin.com/in/chinmay-gawad-7b3172256/" target="_blank" rel="noopener"
+                class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">C</div>
-          <h3 class="member-name">Chirag Patil</h3>
-          <span class="member-role">Backend Developer</span>
+        <!-- Engineer 2 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev"><i class="fas fa-server"></i> Backend Engineering</span>
+              <span class="status-pulse-dot" title="Active Backend Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">CP</div>
+              <div>
+                <h3 class="stripe-member-name">Chirag Patil</h3>
+                <span class="stripe-member-title">Python & Microservices Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+              <span class="tech-icon-pill"><i class="fab fa-docker" style="color: #2496ED;"></i> Docker</span>
+              <span class="tech-icon-pill"><i class="fas fa-cogs" style="color: #A855F7;"></i> Microservices</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/12Chirag12" target="_blank" rel="noopener" class="stripe-social-link"><i
+                  class="fab fa-github"></i>
+                GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Swagat Bhoir</h3>
-          <span class="member-role">Frontend Developer</span>
+        <!-- Engineer 3 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev"><i class="fas fa-laptop-code"></i> Frontend Engineering</span>
+              <span class="status-pulse-dot" title="Active Frontend Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SB</div>
+              <div>
+                <h3 class="stripe-member-name">Swagat Bhoir</h3>
+                <span class="stripe-member-title">Frontend React Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+              <span class="tech-icon-pill"><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+              <span class="tech-icon-pill"><i class="fab fa-css3-alt" style="color: #1572B6;"></i> CSS3</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/Swagatbhoir" target="_blank" rel="noopener" class="stripe-social-link"><i
+                  class="fab fa-github"></i>
+                GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
 
-        <div class="team-card">
-          <div class="member-avatar">S</div>
-          <h3 class="member-name">Sahil Gawad</h3>
-          <span class="member-role">Frontend Developer</span>
+        <!-- Engineer 4 -->
+        <div class="stripe-team-card">
+          <div>
+            <div class="card-top-bar">
+              <span class="badge-dev"><i class="fas fa-mobile-alt"></i> Mobile & Frontend</span>
+              <span class="status-pulse-dot" title="Active Mobile Engineer"></span>
+            </div>
+            <div class="stripe-card-header">
+              <div class="stripe-avatar-box">SG</div>
+              <div>
+                <h3 class="stripe-member-name">Sahil Gawad</h3>
+                <span class="stripe-member-title">Mobile & UI Developer</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stripe-tech-icons">
+              <span class="tech-icon-pill"><i class="fas fa-mobile-alt" style="color: #02569B;"></i> Flutter</span>
+              <span class="tech-icon-pill"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5</span>
+              <span class="tech-icon-pill"><i class="fas fa-code" style="color: #00F2FE;"></i> UI Specs</span>
+            </div>
+            <div class="stripe-social-footer">
+              <a href="https://github.com/SahilGawad" target="_blank" rel="noopener" class="stripe-social-link"><i
+                  class="fab fa-github"></i>
+                GitHub</a>
+              <a href="#" target="_blank" rel="noopener" class="stripe-social-link"><i class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -461,7 +772,10 @@
 
   <!-- CONTACT SECTION -->
   <section class="section section-light" id="contact">
-    <div class="container">
+    <div class="hero-ambient-glow"
+      style="width: 500px; height: 500px; top: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="contact-box">
         <div class="contact-left">
           <div class="section-tag dark-tag">07 / GET IN TOUCH</div>
@@ -586,7 +900,8 @@
           </button>
         </form>
         <div id="form-error-msg" class="form-error-msg d-none">
-          Something went wrong while sending your message. Please try again or email us directly at techmorphpvt@gmail.com.
+          Something went wrong while sending your message. Please try again or email us directly at
+          techmorphpvt@gmail.com.
         </div>
         <div id="form-success-msg" class="form-success-msg d-none">
           ✨ Thank you! Your message has been received by TechMorph Pvt. Ltd. We'll be in touch shortly.
@@ -595,7 +910,12 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <!-- BACK TO TOP FLOATING BUTTON -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/main.js?v=2.0"></script>
 </body>
 
 </html>
