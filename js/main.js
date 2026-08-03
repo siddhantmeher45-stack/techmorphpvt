@@ -25,6 +25,9 @@
       span.textContent = item.text;
       span.style.animationDelay = (0.7 + i * 0.055) + 's';
       headline.appendChild(span);
+      if (i < headlineWords.length - 1) {
+        headline.appendChild(document.createTextNode(' '));
+      }
     });
   }
 
