@@ -1,16 +1,29 @@
 (function() {
   'use strict';
 
-  // ===== 1. WORD REVEAL ANIMATION =====
+  // ===== 1. WORD REVEAL & KINETIC TYPOGRAPHY ANIMATION =====
   const headline = document.getElementById('headline');
   if (headline) {
-    const text = "We build immersive web & mobile experiences that hang between creativity and technology.";
-    const words = text.split(' ');
-    words.forEach(function(word, i) {
+    const headlineWords = [
+      { text: "We", highlight: false },
+      { text: "engineer", highlight: false },
+      { text: "immersive", highlight: true, style: "cyan-blue" },
+      { text: "web", highlight: false },
+      { text: "&", highlight: false },
+      { text: "mobile", highlight: false },
+      { text: "experiences", highlight: true, style: "cyan-blue" },
+      { text: "driven", highlight: false },
+      { text: "by", highlight: false },
+      { text: "creativity", highlight: true, style: "purple-pink" },
+      { text: "and", highlight: false },
+      { text: "technology.", highlight: true, style: "cyan-blue" }
+    ];
+
+    headlineWords.forEach(function(item, i) {
       const span = document.createElement('span');
-      span.className = 'word-reveal';
-      span.textContent = word;
-      span.style.animationDelay = (1 + i * 0.05) + 's';
+      span.className = 'word-reveal' + (item.highlight ? ' highlight-' + item.style : '');
+      span.textContent = item.text;
+      span.style.animationDelay = (0.7 + i * 0.055) + 's';
       headline.appendChild(span);
     });
   }
@@ -18,6 +31,7 @@
   // ===== 2. BURGER MENU & PANEL TOGGLE =====
   const burgerBtn = document.getElementById('burger-btn');
   const menuPanel = document.getElementById('menu-panel');
+  const menuBackdrop = document.getElementById('menu-backdrop');
   let menuOpen = false;
 
   function toggleMenu(open) {
@@ -25,20 +39,34 @@
     if (menuOpen) {
       burgerBtn.classList.add('open');
       menuPanel.classList.add('open');
+      if (menuBackdrop) menuBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
       menuPanel.setAttribute('aria-hidden', 'false');
       burgerBtn.setAttribute('aria-label', 'Close menu');
     } else {
       burgerBtn.classList.remove('open');
       menuPanel.classList.remove('open');
+      if (menuBackdrop) menuBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
       menuPanel.setAttribute('aria-hidden', 'true');
       burgerBtn.setAttribute('aria-label', 'Open menu');
     }
   }
 
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
   if (burgerBtn && menuPanel) {
     burgerBtn.addEventListener('click', () => toggleMenu());
 
-    menuPanel.querySelectorAll('.menu-nav a, .menu-socials a').forEach(a => {
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', () => toggleMenu(false));
+    }
+
+    if (menuBackdrop) {
+      menuBackdrop.addEventListener('click', () => toggleMenu(false));
+    }
+
+    menuPanel.querySelectorAll('.menu-nav a, .menu-socials a, .open-contact-modal').forEach(a => {
       a.addEventListener('click', () => toggleMenu(false));
     });
   }
