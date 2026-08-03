@@ -8,6 +8,20 @@
   <meta name="description"
     content="TechMorph Pvt. Ltd. — Specializing in web & mobile app development, UI/UX design, full-stack solutions, and custom software." />
 
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TechMorph Pvt. Ltd. — Future of Digital Solutions" />
+  <meta property="og:description"
+    content="Web & mobile app development, UI/UX design, full-stack solutions, and custom software engineering." />
+  <meta property="og:url" content="https://techmorphpvt.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TechMorph Pvt. Ltd." />
+  <meta name="twitter:description" content="Future of Digital Solutions — Web, Mobile, UI/UX, Full-Stack Engineering" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='10' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='36' y2='36'><stop stop-color='%2300F2FE'/><stop offset='1' stop-color='%234FACFE'/></linearGradient></defs><path d='M9 27L27 9M27 9H14M27 9V22' stroke='%230B0B0B' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -19,7 +33,7 @@
   <link rel="preload" as="image" href="images/hero-reveal.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css?v=4.0" />
+  <link rel="stylesheet" href="css/styles.css?v=5.0" />
 </head>
 
 <body>
@@ -70,12 +84,20 @@
       <span class="status-dot"></span> TechMorph Pvt. Ltd. — Accepting Projects
     </div>
 
-    <div class="burger-wrapper">
-      <div class="inner">
-        <button class="burger-btn" id="burger-btn" aria-label="Open menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+    <div class="header-actions">
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Switch to Light Theme" title="Toggle Light/Dark Theme">
+        <i class="fas fa-sun icon-sun"></i>
+        <i class="fas fa-moon icon-moon"></i>
+      </button>
+
+      <div class="burger-wrapper">
+        <div class="inner">
+          <button class="burger-btn" id="burger-btn" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -97,15 +119,32 @@
     </div>
 
     <nav class="menu-nav">
-      <a href="#home" class="menu-link"><span class="link-num">01</span><span class="link-text">Home</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#about" class="menu-link"><span class="link-num">02</span><span class="link-text">About Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#vision-mission" class="menu-link"><span class="link-num">03</span><span class="link-text">Vision & Mission</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#services" class="menu-link"><span class="link-num">04</span><span class="link-text">Our Services</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#portfolio" class="menu-link"><span class="link-num">05</span><span class="link-text">Recent Work</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#goals" class="menu-link"><span class="link-num">06</span><span class="link-text">Core Values</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#team" class="menu-link"><span class="link-num">07</span><span class="link-text">Management Team</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
-      <a href="#contact" class="menu-link"><span class="link-num">08</span><span class="link-text">Contact Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#home" class="menu-link"><span class="link-num">01</span><span class="link-text">Home</span><span
+          class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#about" class="menu-link"><span class="link-num">02</span><span class="link-text">About Us</span><span
+          class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#vision-mission" class="menu-link"><span class="link-num">03</span><span class="link-text">Vision &
+          Mission</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#services" class="menu-link"><span class="link-num">04</span><span class="link-text">Our
+          Services</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#portfolio" class="menu-link"><span class="link-num">05</span><span class="link-text">Recent
+          Work</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#goals" class="menu-link"><span class="link-num">06</span><span class="link-text">Core Values</span><span
+          class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#team" class="menu-link"><span class="link-num">07</span><span class="link-text">Management
+          Team</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
+      <a href="#contact" class="menu-link open-contact-modal"><span class="link-num">08</span><span class="link-text">Contact
+          Us</span><span class="link-arrow"><i class="fas fa-chevron-right"></i></span></a>
     </nav>
+
+    <!-- Theme switcher inside drawer -->
+    <div class="drawer-theme-wrapper">
+      <span class="drawer-theme-label"><i class="fas fa-adjust"></i> Theme</span>
+      <button class="drawer-theme-toggle" id="drawer-theme-toggle" aria-label="Switch theme">
+        <span class="theme-option theme-dark-opt"><i class="fas fa-moon"></i> Dark</span>
+        <span class="theme-option theme-light-opt"><i class="fas fa-sun"></i> Light</span>
+      </button>
+    </div>
 
     <div class="menu-contact">
       <div class="contact-pill-item">
@@ -116,7 +155,8 @@
         <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i
+            class="fab fa-github"></i></a>
       </div>
     </div>
 
@@ -140,6 +180,9 @@
 
   <!-- HERO SECTION -->
   <main class="hero" id="home">
+    <!-- Interactive Canvas Layer -->
+    <canvas id="hero-particle-canvas" class="hero-particle-canvas"></canvas>
+
     <!-- Ambient Depth Glow & Mesh Overlay -->
     <div class="hero-ambient-glow hero-glow-1"></div>
     <div class="hero-ambient-glow hero-glow-2"></div>
@@ -169,8 +212,7 @@
 
         <!-- Subheadline Copy -->
         <p class="hero-subheadline">
-          We transform ambitious vision into high-performance web platforms, mobile apps, and bespoke digital software
-          built to scale your business.
+          We build high-performance web platforms and mobile apps engineered to scale your business.
         </p>
 
         <!-- Hero Action CTAs -->
@@ -203,7 +245,8 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <span class="trust-text"><strong>4.9/5 Rating</strong> from 50+ enterprise & startup projects</span>
+          <span class="trust-text"><strong>4.9/5 Rating</strong> <span class="trust-count">• 50+ Projects
+              Delivered</span></span>
         </div>
       </div>
     </div>
@@ -216,46 +259,49 @@
   <div class="hero-ticker-bridge" aria-label="Core Capabilities Ticker">
     <div class="ticker-track">
       <div class="ticker-content">
-        <span class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</a>
         <span class="ticker-dot">•</span>
       </div>
       <!-- Duplicate for seamless infinite loop -->
       <div class="ticker-content" aria-hidden="true">
-        <span class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-code"></i> Custom Web Engineering</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-mobile-alt"></i> Mobile App Development</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-paint-brush"></i> UI/UX Design</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-layer-group"></i> Full-Stack Architecture</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-cloud"></i> Cloud Infrastructure</a>
         <span class="ticker-dot">•</span>
-        <span class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</span>
+        <a href="#services" class="ticker-item"><i class="fas fa-brain"></i> AI Solutions</a>
         <span class="ticker-dot">•</span>
       </div>
     </div>
   </div>
 
   <!-- ABOUT SECTION -->
-  <section class="section section-light" id="about">
+  <section class="section section-dark" id="about">
     <div class="hero-ambient-glow"
-      style="width: 450px; height: 450px; top: 10%; right: -100px; background: radial-gradient(circle, rgba(0, 114, 255, 0.08) 0%, transparent 70%);">
+      style="width: 500px; height: 500px; top: 10%; right: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 450px; height: 450px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -4s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="about-layout">
         <div class="about-left">
-          <div class="section-tag dark-tag">01 / WHO WE ARE</div>
+          <div class="section-tag">01 / WHO WE ARE</div>
           <h2 class="about-heading">About TechMorph Pvt. Ltd.</h2>
           <p class="about-body">
             TechMorph Pvt. Ltd. is a digital solutions company specializing in web and app design, UI/UX development,
@@ -263,10 +309,6 @@
             Founded with a vision to deliver custom, user-centered experiences, we help brands transform their digital
             presence through creativity and cutting-edge technology.
           </p>
-          <div class="about-quote">
-            "We build immersive web & mobile experiences that hang seamlessly between creativity and high-performance
-            technology."
-          </div>
           <div style="margin-top: 32px;">
             <button class="cta-btn open-contact-modal">
               <span class="cta-btn-bg"></span>
@@ -309,7 +351,10 @@
   <!-- VISION & MISSION SECTION -->
   <section class="section section-dark" id="vision-mission">
     <div class="hero-ambient-glow"
-      style="width: 500px; height: 500px; top: 15%; left: -120px; background: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, transparent 70%);">
+      style="width: 550px; height: 550px; top: 15%; left: -120px; background: radial-gradient(circle, rgba(0, 242, 254, 0.22) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 480px; height: 480px; bottom: 10%; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -5s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header center-text" style="max-width: 800px; margin: 0 auto 60px auto;">
@@ -345,9 +390,12 @@
   </section>
 
   <!-- SERVICES SECTION -->
-  <section class="section section-dark" id="services" style="border-top: 1px solid rgba(255,255,255,0.06);">
+  <section class="section section-dark" id="services">
     <div class="hero-ambient-glow"
-      style="width: 550px; height: 550px; bottom: 10%; right: -120px; background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, transparent 70%);">
+      style="width: 550px; height: 550px; bottom: 10%; right: -120px; background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255, 0, 122, 0.1) 60%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 500px; height: 500px; top: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%); animation-delay: -3s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
@@ -421,6 +469,19 @@
             Request Service <i class="fas fa-arrow-right"></i>
           </button>
         </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-brain"></i></div>
+          <h3 class="service-title">AI & Machine Learning</h3>
+          <p class="service-desc">Intelligent automation, predictive analytics, and custom AI models to supercharge
+            your business decision-making.</p>
+          <div class="service-tech-tags">
+            <span>TensorFlow</span><span>OpenAI</span><span>LangChain</span><span>NLP</span>
+          </div>
+          <button class="service-cta-btn open-contact-modal" data-service="fullstack">
+            Request Service <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -428,7 +489,10 @@
   <!-- RECENT PROJECTS / WORK SECTION -->
   <section class="section section-dark" id="portfolio">
     <div class="hero-ambient-glow"
-      style="width: 520px; height: 520px; top: 20%; right: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, transparent 70%);">
+      style="width: 550px; height: 550px; top: 20%; right: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.22) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 480px; height: 480px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -6s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
@@ -503,19 +567,54 @@
               travel itineraries.</p>
           </div>
         </article>
+
+        <!-- Project 4 -->
+        <article class="work-card" data-category="fintech" data-id="ai_workflow">
+          <div class="work-thumb">
+            <img src="images/fintech-dash.jpg" alt="AI Enterprise Workflow Engine" loading="lazy" />
+            <div class="work-overlay">
+              <span class="view-btn">View Case Details</span>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span class="work-category">AI & Enterprise</span>
+              <span class="work-year">2026</span>
+            </div>
+            <h3 class="work-title">AI Enterprise Workflow Engine</h3>
+            <p class="work-excerpt">Automated document parsing, intelligent data extraction, and multi-agent workflow
+              orchestration.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <button class="cta-btn open-contact-modal" data-service="fullstack">
+          <span class="cta-btn-bg"></span>
+          <span class="cta-btn-text">Start Your Custom Project</span>
+          <span class="cta-btn-circle">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </section>
 
   <!-- GOALS & CORE VALUES -->
-  <section class="section section-light" id="goals">
+  <section class="section section-dark" id="goals">
     <div class="hero-ambient-glow"
-      style="width: 450px; height: 450px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 114, 255, 0.08) 0%, transparent 70%);">
+      style="width: 500px; height: 500px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 450px; height: 450px; top: 10%; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -3.5s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header">
-        <div class="section-tag dark-tag">05 / CORE VALUES</div>
-        <h2 class="section-title dark-text">Our Strategic Goals</h2>
+        <div class="section-tag">05 / CORE VALUES</div>
+        <h2 class="section-title">Our Strategic Goals</h2>
       </div>
 
       <div class="goals-wrapper">
@@ -550,7 +649,10 @@
   <!-- MANAGEMENT TEAM SECTION -->
   <section class="section section-dark" id="team">
     <div class="hero-ambient-glow"
-      style="width: 550px; height: 550px; bottom: 5%; left: -120px; background: radial-gradient(circle, rgba(0, 114, 255, 0.16) 0%, transparent 70%);">
+      style="width: 550px; height: 550px; bottom: 5%; left: -120px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(0, 114, 255, 0.12) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 480px; height: 480px; top: 15%; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -5.5s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header center-text" style="max-width: 700px; margin: 0 auto 60px auto;">
@@ -646,6 +748,8 @@
                 <span class="stripe-member-title">Backend & Android Developer</span>
               </div>
             </div>
+            <p class="stripe-member-bio">Engineers high-performance FastAPI backends, custom Android applications, and
+              Python services.</p>
           </div>
           <div>
             <div class="stripe-tech-icons">
@@ -688,6 +792,8 @@
                 <span class="stripe-member-title">Python & Microservices Developer</span>
               </div>
             </div>
+            <p class="stripe-member-bio">Specializes in Python API microservices, containerization with Docker, and
+              scalable server architecture.</p>
           </div>
           <div>
             <div class="stripe-tech-icons">
@@ -719,6 +825,8 @@
                 <span class="stripe-member-title">Frontend React Developer</span>
               </div>
             </div>
+            <p class="stripe-member-bio">Crafts responsive React interfaces, state management architectures, and modern
+              web applications.</p>
           </div>
           <div>
             <div class="stripe-tech-icons">
@@ -750,6 +858,8 @@
                 <span class="stripe-member-title">Mobile & UI Developer</span>
               </div>
             </div>
+            <p class="stripe-member-bio">Builds cross-platform Flutter mobile applications and translates design specs
+              into fluid mobile UIs.</p>
           </div>
           <div>
             <div class="stripe-tech-icons">
@@ -771,14 +881,17 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="section section-light" id="contact">
+  <section class="section section-dark" id="contact">
     <div class="hero-ambient-glow"
-      style="width: 500px; height: 500px; top: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);">
+      style="width: 550px; height: 550px; top: 10%; left: -100px; background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(58, 134, 255, 0.1) 50%, transparent 70%);">
+    </div>
+    <div class="hero-ambient-glow"
+      style="width: 480px; height: 480px; bottom: 10%; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(255, 0, 122, 0.08) 60%, transparent 70%); animation-delay: -4.5s;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="contact-box">
         <div class="contact-left">
-          <div class="section-tag dark-tag">07 / GET IN TOUCH</div>
+          <div class="section-tag">07 / GET IN TOUCH</div>
           <h2 class="contact-heading">Let's Create Something Amazing Together</h2>
           <p class="contact-subtext">Ready to transform your digital presence? Reach out to TechMorph Pvt. Ltd. today.
           </p>
@@ -796,9 +909,9 @@
         </div>
 
         <div class="contact-right">
-          <button class="cta-btn open-contact-modal" style="width: 100%; justify-content: center;">
-            <span class="cta-btn-bg" style="width: calc(100% - 16px);"></span>
-            <span class="cta-btn-text" style="padding: 18px 40px;">Launch Inquiry Form</span>
+          <button class="cta-btn open-contact-modal" data-service="custom">
+            <span class="cta-btn-bg"></span>
+            <span class="cta-btn-text">Launch Inquiry Form</span>
             <span class="cta-btn-circle">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round"
@@ -818,6 +931,44 @@
         <div class="footer-brand">
           <h2>TechMorph Pvt. Ltd.</h2>
           <p>Building high-impact web & mobile experiences at the intersection of creativity and technology.</p>
+          <div class="footer-social-row">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Web & Mobile Apps</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">Full Stack Dev</a></li>
+            <li><a href="#services">Custom Software</a></li>
+            <li><a href="#services">AI & ML Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#vision-mission">Vision & Mission</a></li>
+            <li><a href="#goals">Core Values</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#portfolio">Recent Work</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:techmorphpvt@gmail.com">techmorphpvt@gmail.com</a></li>
+            <li><a href="#contact" class="open-contact-modal">Contact Us</a></li>
+            <li><a href="#" class="open-contact-modal">Start a Project</a></li>
+          </ul>
         </div>
       </div>
 
@@ -830,7 +981,6 @@
           <a href="#services">Services</a>
           <a href="#portfolio">Work</a>
           <a href="#team">Team</a>
-          <a href="mailto:techmorphpvt@gmail.com">techmorphpvt@gmail.com</a>
         </div>
       </div>
     </div>
@@ -857,6 +1007,10 @@
         <p class="form-subtitle">Send your project inquiry to techmorphpvt@gmail.com. We respond within 24 hours.</p>
 
         <form id="project-inquiry-form" onsubmit="event.preventDefault(); handleFormSubmit();">
+          <!-- Invisible Anti-Spam Honeypot Field -->
+          <input type="text" name="b_website" tabindex="-1" autocomplete="off" style="display:none !important;"
+            aria-hidden="true" />
+
           <div class="form-group">
             <label for="client-name">Your Name / Organization *</label>
             <input type="text" id="client-name" required placeholder="e.g. Siddhant Meher / TechMorph" />
