@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   // ===== 1. WORD REVEAL & KINETIC TYPOGRAPHY ANIMATION =====
@@ -19,7 +19,7 @@
       { text: "technology.", highlight: true, style: "cyan-blue" }
     ];
 
-    headlineWords.forEach(function(item, i) {
+    headlineWords.forEach(function (item, i) {
       const span = document.createElement('span');
       span.className = 'word-reveal' + (item.highlight ? ' highlight-' + item.style : '');
       span.textContent = item.text;
@@ -110,7 +110,7 @@
       }
     }
 
-    heroSection.addEventListener('mousemove', function(e) {
+    heroSection.addEventListener('mousemove', function (e) {
       const rect = heroSection.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
@@ -122,7 +122,7 @@
       triggerSpotlightUpdate();
     }, { passive: true });
 
-    heroSection.addEventListener('mouseleave', function() {
+    heroSection.addEventListener('mouseleave', function () {
       if (isHovering) {
         isHovering = false;
         imgLayer.style.opacity = '0';
@@ -198,6 +198,20 @@
         "Fully responsive layout optimized for mobile travelers.",
         "Integrated payment gateways and automated booking receipts."
       ]
+    },
+    ai_workflow: {
+      title: "AI Enterprise Workflow Engine",
+      category: "AI & Enterprise",
+      year: "2026",
+      client: "Global Operations Corp",
+      role: "AI Architecture & Backend (TechMorph)",
+      heroImg: "images/fintech-dash.jpg",
+      description: "An intelligent enterprise orchestration platform that automates document intake, natural language classification, and automated routing.",
+      highlights: [
+        "LLM-powered document parsing with 98.4% field accuracy.",
+        "Automated fallback escalation matrix for manual human review.",
+        "60% reduction in manual processing overhead for enterprise clients."
+      ]
     }
   };
 
@@ -221,7 +235,7 @@
         <div><strong>Client:</strong> ${p.client}</div>
         <div><strong>Role:</strong> ${p.role}</div>
       </div>
-      <img src="${p.heroImg}" alt="${p.title}" style="width: 100%; height: 340px; object-fit: cover; border-radius: 16px; margin-bottom: 24px;" />
+      <img src="${p.heroImg}" alt="${p.title}" class="modal-hero-img" />
       <p style="font-size: 16px; color: #ddd; line-height: 160%; margin-bottom: 24px;">
         ${p.description}
       </p>
@@ -286,7 +300,7 @@
       const serviceVal = btn.getAttribute('data-service');
       openContact(serviceVal);
     });
-  });if (contactClose) contactClose.addEventListener('click', closeContact);
+  }); if (contactClose) contactClose.addEventListener('click', closeContact);
   if (contactBackdrop) contactBackdrop.addEventListener('click', closeContact);
 
   const CONTACT_API = '/api/contact';
@@ -301,6 +315,11 @@
   function showFormSuccess(form, msg) {
     form.style.display = 'none';
     msg.classList.remove('d-none');
+
+    // Trigger celebratory sparkles visual feedback
+    const modalContent = document.querySelector('.contact-modal-content') || document.body;
+    triggerCelebrationSparks(modalContent);
+
     setTimeout(() => {
       closeContact();
       setTimeout(() => {
@@ -308,10 +327,10 @@
         form.style.display = 'block';
         msg.classList.add('d-none');
       }, 500);
-    }, 3000);
+    }, 3200);
   }
 
-  window.handleFormSubmit = async function() {
+  window.handleFormSubmit = async function () {
     const form = document.getElementById('project-inquiry-form');
     const msg = document.getElementById('form-success-msg');
     const errorMsg = document.getElementById('form-error-msg');
@@ -323,6 +342,7 @@
     const email = document.getElementById('client-email')?.value?.trim();
     const services = [...form.querySelectorAll('input[name="service"]:checked')].map((cb) => cb.value);
     const details = document.getElementById('project-details')?.value?.trim() || '';
+    const honeypot = form.querySelector('input[name="b_website"]')?.value || '';
 
     if (errorMsg) errorMsg.classList.add('d-none');
 
@@ -335,7 +355,7 @@
       const response = await fetch(CONTACT_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, services, details }),
+        body: JSON.stringify({ name, email, services, details, honeypot }),
       });
 
       if (!response.ok) {
@@ -395,7 +415,7 @@
   function handleScrollEffects() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
+
     if (progressBar && height > 0) {
       const scrolled = (winScroll / height) * 100;
       progressBar.style.width = scrolled + '%';
@@ -422,9 +442,202 @@
   handleScrollEffects();
 
   if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', function() {
+    backToTopBtn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
+  // ===== 9. FIREFLY ENERGY SWARM PARTICLE ENGINE =====
+  function initParticleCanvas() {
+    const canvas = document.getElementById('hero-particle-canvas');
+    if (!canvas || !canvas.parentElement) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = canvas.parentElement.offsetWidth);
+    let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+    const isMobile = window.innerWidth < 768;
+    const fireflyCount = isMobile ? 25 : 65;
+    const fireflies = [];
+    const mouse = { x: null, y: null, radius: isMobile ? 120 : 220 };
+
+    window.addEventListener('resize', () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const heroEl = document.getElementById('home');
+    if (heroEl) {
+      heroEl.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      heroEl.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+    }
+
+    class Firefly {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 3.5 + 1.8;
+        this.angle = Math.random() * Math.PI * 2;
+        this.speed = Math.random() * 0.8 + 0.3;
+        this.colorHue = Math.random() > 0.4 ? 'rgba(0, 242, 254, ' : 'rgba(168, 85, 247, ';
+        this.alpha = Math.random() * 0.5 + 0.3;
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.03 + 0.01;
+      }
+
+      update() {
+        // Natural brownian sine-wave drift
+        this.angle += (Math.random() - 0.5) * 0.12;
+        let vx = Math.cos(this.angle) * this.speed;
+        let vy = Math.sin(this.angle) * this.speed;
+
+        // Mouse swarm gravitation attraction
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const attraction = (1 - dist / mouse.radius) * 1.2;
+            const swarmAngle = Math.atan2(dy, dx);
+            vx += Math.cos(swarmAngle) * attraction;
+            vy += Math.sin(swarmAngle) * attraction;
+          }
+        }
+
+        this.x += vx;
+        this.y += vy;
+
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        if (this.y > height) this.y = 0;
+
+        // Breathing halo pulse
+        this.pulsePhase += this.pulseSpeed;
+      }
+
+      draw() {
+        const currentAlpha = Math.max(0.1, this.alpha + Math.sin(this.pulsePhase) * 0.25);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+        // Radiant halo shadow glow
+        ctx.shadowBlur = 18;
+        ctx.shadowColor = this.colorHue.includes('0, 242') ? 'rgba(0, 242, 254, 0.85)' : 'rgba(168, 85, 247, 0.85)';
+        ctx.fillStyle = this.colorHue + currentAlpha.toFixed(2) + ')';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    for (let i = 0; i < fireflyCount; i++) {
+      fireflies.push(new Firefly());
+    }
+
+    function animateFireflies() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Update & render fireflies
+      for (let i = 0; i < fireflies.length; i++) {
+        fireflies[i].update();
+        fireflies[i].draw();
+      }
+
+      // Draw delicate luminous energy filaments between nearby fireflies
+      for (let i = 0; i < fireflies.length; i++) {
+        for (let j = i + 1; j < fireflies.length; j++) {
+          const f1 = fireflies[i];
+          const f2 = fireflies[j];
+          const dx = f1.x - f2.x;
+          const dy = f1.y - f2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maxDist = isMobile ? 60 : 110;
+
+          if (dist < maxDist) {
+            const lineAlpha = (1 - dist / maxDist) * 0.22;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 242, 254, ${lineAlpha.toFixed(2)})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(f1.x, f1.y);
+            ctx.lineTo(f2.x, f2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animateFireflies);
+    }
+
+    animateFireflies();
+  }
+
+  // ===== 10. SCROLL REVEAL OBSERVER =====
+  function initScrollRevealer() {
+    const revealTargets = document.querySelectorAll(
+      '.section-header, .glass-card, .service-card, .work-card, .stripe-team-card, .goal-card, .metric-card, .about-layout > div'
+    );
+
+    revealTargets.forEach((el, idx) => {
+      el.classList.add('reveal-on-scroll');
+      el.style.transitionDelay = `${(idx % 4) * 0.12}s`;
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+  }
+
+  // ===== 11. CELEBRATORY SPARKS FOR FORM SUCCESS =====
+  function triggerCelebrationSparks(container) {
+    const burst = document.createElement('div');
+    burst.className = 'celebration-burst';
+    container.appendChild(burst);
+
+    const colors = ['#00F2FE', '#4FACFE', '#A855F7', '#F472B6', '#10B981'];
+
+    for (let i = 0; i < 28; i++) {
+      const spark = document.createElement('div');
+      spark.className = 'celebration-spark';
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 120 + 35;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+
+      spark.style.backgroundColor = color;
+      spark.style.setProperty('--dx', `${dx}px`);
+      spark.style.setProperty('--dy', `${dy}px`);
+      burst.appendChild(spark);
+    }
+
+    setTimeout(() => burst.remove(), 1000);
+  }
+
+  // Initialize enhancements when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initParticleCanvas();
+    initScrollRevealer();
+  });
+  initParticleCanvas();
+  initScrollRevealer();
+
 })();
+
